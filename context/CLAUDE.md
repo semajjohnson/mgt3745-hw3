@@ -4,7 +4,7 @@ Status: ACTIVE in Module 3. Read context/STANDARDS.md and the selected scope in 
 
 1. Name things after the pool's domain: poolItems for the stored list, savePool, loadPool and renderPool for the three core functions, trackInput and sourceInput for the fields. Add new names in the same camelCase pattern.
 2. Keep all behavior in app.js inside its IIFE, all styling in styles.css, and only markup in index.html. Do not add libraries, CDN scripts, or calls to Spotify or any other API; ADR-001 chose a hand-built page with no platform.
-3. When a comment is needed, write why the pool behaves that way, such as why a failed save leaves the list untouched. Do not narrate the line. Delete every console.log before saying you are done.
+3. When a comment is needed, write why the pool behaves that way, such as why items are stored with the date they were added. Do not narrate the line. Delete every console.log before saying you are done.
 4. Write commit messages about pool behavior, such as "Reject pool items with an empty source name." Never write "update files" or "fix bug."
 5. Render every track and source name with textContent. Do not use innerHTML anywhere in app.js; nothing in this project needs it.
 
