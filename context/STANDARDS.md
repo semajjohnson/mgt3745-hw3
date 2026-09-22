@@ -18,7 +18,7 @@ Rule 2 (separate files, no libraries or API calls). This applies to every task, 
 
 Rule 6 (labels, messages, and keeping input when savePool fails). This applies only to tasks that touch the form or saving, not to styling or documentation. It will change when Module 4 replaces localStorage with a database. Keeping it in CLAUDE.md risks confusion, where an agent adds save-error handling to an unrelated task. Verdict: belongs in the prompt for the task that needs it.
 
-Prompt snippet: "This task touches the form or savePool. Keep every field labeled and put messages in #form-error and #save-status. If savePool returns false, leave the typed track and source in their inputs and do not change the list. Test it with ?failSave in the URL."
+Prompt snippet: "This task touches the form or savePool. Keep every field labeled and put messages in #form-error and #save-status. Reject an empty track or source before calling savePool. A failed save means the storage write itself failed; when that happens, leave the typed track and source in their inputs and do not change the list. Test it with ?failSave in the URL."
 
 Rule 7 (every pool item shows a source name). This applies only to tasks that save, load, or render pool items. It will change whenever acceptance criterion A5 in FEATURES.md changes. Keeping a copy in CLAUDE.md risks clash, because the file and FEATURES.md would give two versions of the same requirement once A5 is revised. Verdict: belongs in the prompt for the task that needs it.
 
