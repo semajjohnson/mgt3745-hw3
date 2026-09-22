@@ -3,25 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meeting notes | MGT 3745 starter</title>
+  <title>The Pool</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
 <body>
   <main>
-    <h1>Meeting notes</h1>
-    <p>Keep short notes in this browser. Use fictional, non-sensitive information.</p>
-    <form id="note-form" novalidate>
-      <label for="note-input">New note</label>
-      <p id="note-help">Enter 1–200 characters. Notes stay in this browser profile and site only.</p>
-      <input id="note-input" name="note" type="text" aria-describedby="note-help note-error" autocomplete="off">
-      <button type="submit">Save note</button>
-      <p id="note-error" role="alert"></p>
+    <h1>The Pool</h1>
+    <p class="lede">Music that reached you through a person, kept with the person attached.</p>
+
+    <form id="pool-form" novalidate>
+      <div class="field">
+        <label for="track-input">Track</label>
+        <p id="track-help" class="help">Artist and title, 1 to 200 characters.</p>
+        <input id="track-input" name="track" type="text" aria-describedby="track-help form-error" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="source-input">Who it came from</label>
+        <p id="source-help" class="help">A person's name, 1 to 60 characters. Required.</p>
+        <input id="source-input" name="source" type="text" aria-describedby="source-help form-error" autocomplete="off">
+      </div>
+      <button type="submit">Add to pool</button>
+      <p id="form-error" role="alert"></p>
     </form>
+
     <p id="save-status" role="status" aria-live="polite"></p>
-    <h2>Saved notes</h2>
-    <p id="empty-state">No saved notes yet.</p>
-    <ul id="note-list" aria-label="Saved notes"></ul>
+
+    <h2>Pool</h2>
+    <p id="empty-state">Nothing in the pool yet.</p>
+    <ul id="pool-list" aria-label="Pool items"></ul>
   </main>
 </body>
 </html>
