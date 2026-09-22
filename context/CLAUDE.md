@@ -7,8 +7,6 @@ Status: ACTIVE in Module 3. Read context/STANDARDS.md and the selected scope in 
 3. When a comment is needed, write why the pool behaves that way, such as why a failed save leaves the list untouched. Do not narrate the line. Delete every console.log before saying you are done.
 4. Write commit messages about pool behavior, such as "Reject pool items with an empty source name." Never write "update files" or "fix bug."
 5. Render every track and source name with textContent. Do not use innerHTML anywhere in app.js; nothing in this project needs it.
-6. Keep the Track and Who it came from fields labeled, and put messages in #form-error and #save-status. If savePool returns false, leave both typed values in their inputs and do not change the list. Test this with ?failSave in the URL.
-7. Never save, load, or display a pool item whose source name is empty. Check it at submit and again in loadPool.
 
 Before calling any change finished, run it in Live Server and report what you actually saw. Do not invent test results or interview evidence. Leave STYLE, TOOLS, SKILLS, EVALS and AGENTS as previews.
 
