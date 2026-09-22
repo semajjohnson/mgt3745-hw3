@@ -2,6 +2,14 @@
 
 Status: ACTIVE in Module 3. Read context/STANDARDS.md and the selected scope in FEATURES.md before editing. STANDARDS.md is normative; report and repair conflicting instruction wording.
 
-Use descriptive camelCase names and lexical scope. Keep HTML, CSS, and JavaScript separate. Explain significant reasons in comments. Use meaningful commit messages. Insert user text with textContent; do not use innerHTML for it. Label controls and preserve unsaved input after a failed write. Verify expected behavior before claiming completion. Never invent interview evidence or test results. Leave preview files as previews.
+1. Name things after the pool's domain: poolItems for the stored list, savePool, loadPool and renderPool for the three core functions, trackInput and sourceInput for the fields. Add new names in the same camelCase pattern.
+2. Keep all behavior in app.js inside its IIFE, all styling in styles.css, and only markup in index.html. Do not add libraries, CDN scripts, or calls to Spotify or any other API; ADR-001 chose a hand-built page with no platform.
+3. When a comment is needed, write why the pool behaves that way, such as why a failed save leaves the list untouched. Do not narrate the line. Delete every console.log before saying you are done.
+4. Write commit messages about pool behavior, such as "Reject pool items with an empty source name." Never write "update files" or "fix bug."
+5. Render every track and source name with textContent. Do not use innerHTML anywhere in app.js; nothing in this project needs it.
+6. Keep the Track and Who it came from fields labeled, and put messages in #form-error and #save-status. If savePool returns false, leave both typed values in their inputs and do not change the list. Test this with ?failSave in the URL.
+7. Never save, load, or display a pool item whose source name is empty. Check it at submit and again in loadPool.
+
+Before calling any change finished, run it in Live Server and report what you actually saw. Do not invent test results or interview evidence. Leave STYLE, TOOLS, SKILLS, EVALS and AGENTS as previews.
 
 Root CLAUDE.md imports this file for Claude Code. VS Code Copilot uses the separate .github/copilot-instructions.md adapter. A location under /context alone is not a guarantee of automatic discovery.
