@@ -23,3 +23,13 @@ Prompt snippet: "This task touches the form or savePool. Keep every field labele
 Rule 7 (every pool item shows a source name). This applies only to tasks that save, load, or render pool items. It will change whenever acceptance criterion A5 in FEATURES.md changes. Keeping a copy in CLAUDE.md risks clash, because the file and FEATURES.md would give two versions of the same requirement once A5 is revised. Verdict: belongs in the prompt for the task that needs it.
 
 Prompt snippet: "This task touches pool items. Never save, load, or display an item whose source name is empty. Check it at submit and again in loadPool.
+
+## Colleague Test
+
+Reader: Prince.
+
+What they understood: the page stores a list of tracks with source names, renders them with textContent, keeps code in app.js inside the IIFE, and uses no external libraries.
+
+What they asked about: what counts as a "failed save." Rule 3's example mentioned it, but the failure rules had moved out of CLAUDE.md in the split test, so nothing said whether it meant empty fields or storage errors.
+
+Revision: I changed rule 3's comment example so it no longer refers to save behavior, and added a definition of a failed save to the rule 6 prompt snippet. Invalid input is rejected before savePool runs; a failed save means the storage write itself failed.
