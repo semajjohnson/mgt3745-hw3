@@ -11,3 +11,15 @@ Status: ACTIVE in Module 3. Adapt these rules to your feature and follow them.
 7. Every pool item shows the name of the person it came from. An item without a source name is never saved or displayed.
 
 If this file and context/CLAUDE.md disagree, STANDARDS.md is the source of truth, and CLAUDE.md is repaired to match.
+
+## Split Test
+
+Rule 2 (separate files, no libraries or API calls). This applies to every task, since any change could add a script or an API call. It stays the same until ADR-001 is superseded. If it were missing, an agent could pull in the Spotify SDK and that pattern would be copied forward into later tasks, which is poisoning. Verdict: belongs in CLAUDE.md.
+
+Rule 6 (labels, messages, and keeping input when savePool fails). This applies only to tasks that touch the form or saving, not to styling or documentation. It will change when Module 4 replaces localStorage with a database. Keeping it in CLAUDE.md risks confusion, where an agent adds save-error handling to an unrelated task. Verdict: belongs in the prompt for the task that needs it.
+
+Prompt snippet: "This task touches the form or savePool. Keep every field labeled and put messages in #form-error and #save-status. If savePool returns false, leave the typed track and source in their inputs and do not change the list. Test it with ?failSave in the URL."
+
+Rule 7 (every pool item shows a source name). This applies only to tasks that save, load, or render pool items. It will change whenever acceptance criterion A5 in FEATURES.md changes. Keeping a copy in CLAUDE.md risks clash, because the file and FEATURES.md would give two versions of the same requirement once A5 is revised. Verdict: belongs in the prompt for the task that needs it.
+
+Prompt snippet: "This task touches pool items. Never save, load, or display an item whose source name is empty. Check it at submit and again in loadPool.
