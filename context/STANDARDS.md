@@ -2,11 +2,12 @@
 
 Status: ACTIVE in Module 3. Adapt these rules to your feature and follow them.
 
-1. Use descriptive camelCase identifiers. Short conventional event/index names are acceptable when their role is obvious; arbitrary minimum name lengths are unnecessary.
-2. Separate HTML, CSS, and JavaScript into index.html, styles.css, and app.js. Use lexical scope; do not create accidental global variables.
-3. Explain important reasons in comments, not a narration of every statement. Remove temporary debug output before submission.
-4. Write commit messages that name the changed behavior and purpose.
-5. Use textContent for user text. Never insert user strings through innerHTML.
-6. Associate form controls with labels and make success/error feedback perceivable. Preserve unsaved input when a write fails.
+1. Name JavaScript identifiers in descriptive camelCase that says what they hold or do, such as poolItems, savePool, and renderPool. Short conventional names like event, index, and item are fine when their role is obvious.
+2. Keep structure in index.html, presentation in styles.css, and behavior in app.js. Keep application code inside the IIFE in app.js so nothing becomes an accidental global.
+3. Comments explain why code exists, not what it does. Remove console.log and other debug output before submitting.
+4. Commit messages name the behavior that changed and why, such as "Require a source name before saving a pool item," not "update app.js."
+5. Forbidden: inserting user text with innerHTML. Track and source names are always rendered with textContent.
+6. Every form control has a label, and success and error messages appear in announced elements. When savePool fails, the user's typed track and source stay in the inputs.
+7. Every pool item shows the name of the person it came from. An item without a source name is never saved or displayed.
 
-This file is normative if an adapter or context/CLAUDE.md conflicts. Repair inconsistent copies; do not silently choose different policies for humans and agents.
+If this file and context/CLAUDE.md disagree, STANDARDS.md is the source of truth, and CLAUDE.md is repaired to match.
